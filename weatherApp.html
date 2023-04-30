@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Ysabeau&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather</title>
+    <style>
+    .container{
+        margin: 40px 100px auto;
+        background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%);
+        height: 400px;
+        width: 580px;
+        padding: 10px 0px 35px 60px;
+        border-radius: 5px;
+        box-shadow: 2px 2px rgba(160, 199, 254,0.6);  
+        font-family: 'Playfair Display', serif;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Ysabeau', sans-serif;    
+    }
+  
+    
+    .current-city{
+      width: 100px;
+      height: 100px;      
+      vertical-align: middle;
+      display:inline-block;
+      font-family: 'Playfair Display', serif;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-family: 'Ysabeau', sans-serif;
+      font-size: large;
+      
+     } 
+
+        
+    .nav{
+        width: 400px;
+        height: 50px;
+        display:inline-block;
+        font-family: 'Playfair Display', serif;
+        font-family: 'Ysabeau', sans-serif;
+        vertical-align:top;
+        
+    }
+   
+    
+    .submit{
+        margin-left: 15px;
+        margin-top: 10px;
+        height: 25px;
+        width: 55px;
+        padding: 5px;
+        font-family: monospace;
+        font-size: medium;
+        color: rgb(43, 116, 219);
+        background-color: rgb(209, 223, 236);
+        border-radius: 5px;
+        border: 1px solid rgb(43, 116, 219);
+    }
+
+    .submit:hover{
+       background-color: rgb(160, 199, 254);
+       transition: all 200ms ease-in-out;
+       cursor: pointer;
+       font-weight: bold;
+       border: 2px solid;
+    }
+
+    .currentLocation{
+        height: 25px;
+        width: 55px;
+        padding: 3px 2px 0;
+        font-family: monospace;
+        font-size: medium;
+        color: rgb(43, 116, 219);
+        background-color: rgb(209, 223, 236);
+        border-radius: 5px;
+        border: 1px solid rgb(43, 116, 219);
+    }
+    .currentLocation:hover{
+    background-color: rgb(160, 199, 254);
+       transition: all 200ms ease-in-out;
+       cursor: pointer;
+       font-weight: bold;
+       border: 2px solid;
+    }
+    
+
+    .columns{
+        display: inline-block;
+        padding: 20px;
+        border: solid rgb(164, 204, 241) 1px;
+        border-radius: 10px;
+        }
+
+    .columns:hover{
+        border-radius: 10px;
+        background-color: rgb(160, 199, 254);
+        transition: all 150ms ease-in-out;
+        cursor: pointer;
+    }
+
+    .weather-days{
+        margin: 45px 0 auto;
+        width: 600px;
+        font-family: 'Playfair Display', serif;
+        font-family: 'Ysabeau', sans-serif;
+       
+    }
+
+    .emo{
+        font-size: 50px;
+        margin-top: 1px;
+    }
+    h3{
+       font-size: large;
+
+    }
+    p{
+        font-family: 'Playfair Display', serif;
+        font-family: 'Ysabeau', sans-serif;
+        text-align: right;
+        margin-right:250px;
+        
+    }
+    .condition{
+        margin-left: 10px;
+    }
+    .temperature-one{
+        font-size: medium;
+        margin-left: 10px;
+    }    
+    
+    a{
+        text-decoration: none;        
+    }
+    .currentDate{
+        margin: 30px 410px auto;
+        font-family: 'Playfair Display', serif;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Ysabeau', sans-serif;
+        font-size: large;
+    }
+    .searchCity{
+        border: 2px dashed rgba(160, 199, 254,0.6);
+        border-radius: 10px;
+        background-color: rgba(255, 255, 249, 0.6);
+        font-family: 'Playfair Display', serif;
+        font-family: 'Ysabeau', sans-serif;
+    }
+    .searchCity:hover{
+        border: 2px solid rgb(43, 116, 219);
+        size: 50px;
+        transition: all 200ms ease-in-out;
+        cursor:zoom-in;
+    }
+        
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="nav">
+            <form id="form1">
+                <input type="search" id="search-city" class="searchCity" placeholder="   enter any city..." />
+                <br />
+                <input type="submit" class="submit" />
+                <input type="button" value="Current" id="current-location" class="currentLocation"/>
+            </form>
+           
+        </span>
+        
+        <div class="current-city">
+           <span><h3 id="city">Pretoria, South Africa</h3></span> 
+           <span class="emo"><xx-large>☀️</xx-large></span>
+          
+            <br />
+           <span class="temperature-one" id="temp-one"></span>
+           <span class="celsius">
+            <a href="#" id="celsius-link">°C</a>
+            </span>
+            
+            <div class="condition" id="condition">
+                Sunny
+            </div>
+        </div>
+
+        <span class="midsection">
+        <p> 
+            <span>feels like:</span>
+            <span id="feels"></span>
+            <br />
+            <span>wind:</span>
+            <span id="wind">KMPH</span>
+            <br />
+            <span>humidity:</span>
+            <span id="humidity">%</span>
+        </p>
+        </span>
+        <div>
+            <h6 id="current-date" class="currentDate"></h6>
+        </div>
+       
+       
+        <div class="weather-days">
+            <div class="columns">
+                <div>
+                    <small>Tuesday</small>
+                </div>
+                <div>
+                ☀️
+                </div>
+                <div>
+                    <span>27°/</span>
+                    <span>13°</span>
+                </div>
+            </div>
+            <div class="columns">
+                <small>Wednesday</small>
+                <div>
+                    🌥️
+                </div>
+                <div>
+                    <span>26°/ </span>
+                    <span>13°</span>
+                </div>
+            </div>
+            <div class="columns">
+                <small>Thursday</small>
+                <div>
+                    🌥️
+                </div>
+                <div>
+                    <span>26°/</span>
+                    <span>14°</span>
+                </div>
+            </div>
+            <div class="columns">
+                <small>Friday</small>
+                <div>
+                  ☀️
+                </div>
+                <div>
+                    <span>28°/</span>
+                    <span>14°</span>
+                </div>
+            </div>
+            <div class="columns">
+                <small>Saturday</small>
+                <div>
+                  ☀️
+                </div>
+                <div>
+                    <span>28°/</span>
+                    <span>12°</span>
+                </div>
+            </div>
+            
+        </div>
+    
+    </div>
+    <script>
+        function fixDate(date) {
+                let hours = date.getHours();
+                if (hours < 10) {
+                    hours = `0${hours}`;
+                }
+                let minutes = date.getMinutes();
+                if (minutes < 10) {
+                    minutes = `0${minutes}`;
+                }
+
+                let dayIndex = date.getDay();
+                let days = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                ];
+                let day = days[dayIndex];
+
+                return `${day} ${hours}:${minutes}`;
+            }
+
+            function displayWeather(response) {
+                let currentCity = document.querySelector("#city");
+                let current = response.data.name;
+                currentCity.innerHTML = `${current}`;
+
+                let newTemp = document.querySelector("#temp-one");
+                let temperature = Math.round(response.data.main.temp);
+                newTemp.innerHTML = `${temperature}`;
+
+                let descrip = document.querySelector("#condition");
+                let condition = response.data.weather[0].description;
+                descrip.innerHTML = `${condition}`;
+
+                let humid = document.querySelector("#humidity");
+                let hum = response.data.main.humidity;
+                humid.innerHTML = `${hum}%`;
+
+                let windSpeed = document.querySelector("#wind");
+                let wind = Math.round(response.data.wind.speed);
+                windSpeed.innerHTML = `${wind} KMPH`;
+
+                let feelsLike = document.querySelector("#feels");
+                let feeling = Math.round(response.data.main.feels_like);
+                feelsLike.innerHTML = `${feeling}°C`;
+            }
+
+            function searchCity(city) {
+                let apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
+                let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+                axios.get(apiUrl).then(displayWeather);
+            }
+
+            function searchCity_event(event) {
+                event.preventDefault();
+                let city = document.querySelector("#search-city").value;
+                let newCity = document.querySelector("#city");
+                newCity.innerHTML = `${city}`;
+                searchCity(city);
+            }
+
+            function searchPosition(position) {
+                let apiKey = "2ff29bed3181c3526c35cc5408037f85";
+                let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+                axios.get(apiUrl).then(displayWeather);
+            }
+
+            function getCurrentLocation(event) {
+                event.preventDefault();
+                navigator.geolocation.getCurrentPosition(searchPosition);
+            }
+
+            let dateElement = document.querySelector("#current-date");
+            let currentTime = new Date();
+            dateElement.innerHTML = fixDate(currentTime);
+
+            let Form2 = document.querySelector("#form1");
+            Form2.addEventListener("submit", searchCity_event);
+            let currentLocation = document.querySelector("#current-location");
+            currentLocation.addEventListener("click", getCurrentLocation);
+
+            searchCity("Pretoria");
+    </script>
+    
+</body>
+</html>
