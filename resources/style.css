@@ -156,5 +156,11 @@ a {
 }
 
 .repository{
-    margin-left: 350px;
+    margin-left: 300px;
+    margin-top: 5px;
+}
+
+.text{
+    font-size: small;
+    margin-top: 5px;
 }
