@@ -21,37 +21,40 @@ function fixDate(date) {
                 let day = days[dayIndex];
 
                 return `${day} ${hours}:${minutes}`;
-            }
+}
+            
+                               
 
             function displayWeather(response) {
                 let currentCity = document.querySelector("#city");
-                let current = response.data.name;
+                let current = response.data.city;
                 currentCity.innerHTML = `${current}`;
 
                 let newTemp = document.querySelector("#temp-one");
-                let temperature = Math.round(response.data.main.temp);
-                newTemp.innerHTML = `${temperature}`;
+                let temp = Math.round(response.data.temperature.current);
+                newTemp.innerHTML = `${temp}`;
 
                 let descrip = document.querySelector("#condition");
-                let condition = response.data.weather[0].description;
-                descrip.innerHTML = `${condition}`;
+                let conditions = response.data.condition.description;
+                descrip.innerHTML = `${conditions}`;
 
                 let humid = document.querySelector("#humidity");
-                let hum = response.data.main.humidity;
+                let hum = response.data.temperature.humidity;
                 humid.innerHTML = `${hum}%`;
 
                 let windSpeed = document.querySelector("#wind");
-                let wind = Math.round(response.data.wind.speed);
-                windSpeed.innerHTML = `${wind} KMPH`;
+                let winds = Math.round(response.data.wind.speed);
+                windSpeed.innerHTML = `${winds} KMPH`;
 
                 let feelsLike = document.querySelector("#feels");
-                let feeling = Math.round(response.data.main.feels_like);
+                let feeling = Math.round(response.data.temperature.feels_like);
                 feelsLike.innerHTML = `${feeling}°C`;
             }
+            
 
             function searchCity(city) {
-                let apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
-                let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+                let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
+                let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
                 axios.get(apiUrl).then(displayWeather);
             }
 
@@ -64,9 +67,9 @@ function fixDate(date) {
             }
 
             function searchPosition(position) {
-                let apiKey = "2ff29bed3181c3526c35cc5408037f85";
-                let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
+                let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
+                let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`
+                
                 axios.get(apiUrl).then(displayWeather);
             }
 

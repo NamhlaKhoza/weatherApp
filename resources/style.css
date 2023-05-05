@@ -1,7 +1,7 @@
 .container {
     margin: 40px 100px auto;
     background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%);
-    height: 400px;
+    height: 450px;
     width: 580px;
     padding: 10px 0px 35px 60px;
     border-radius: 5px;
@@ -96,6 +96,7 @@
 .weather-days {
     margin: 45px 0 auto;
     width: 600px;
+    vertical-align: bottom auto;
     font-family: 'Playfair Display', serif;
     font-family: 'Ysabeau', sans-serif;
 
@@ -138,6 +139,7 @@ a {
     font-family: 'Source Sans Pro', sans-serif;
     font-family: 'Ysabeau', sans-serif;
     font-size: large;
+   
 }
 
 .searchCity {
