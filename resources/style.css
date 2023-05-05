@@ -160,9 +160,10 @@ a {
 .repository{
     margin-left: 300px;
     margin-top: 5px;
+    font-size: small;
 }
 
 .text{
-    font-size: small;
-    margin-top: 5px;
+    font-size: smaller;
+    margin-top: 6px;
 }
