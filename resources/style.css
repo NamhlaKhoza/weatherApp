@@ -82,8 +82,9 @@
 .columns {
     display: inline-block;
     padding: 20px;
-    border: solid rgb(164, 204, 241) 1px;
+    border: solid #a4ccf1 1px;
     border-radius: 10px;
+    
 }
 
 .columns:hover {
@@ -95,8 +96,7 @@
 
 .weather-days {
     margin: 45px 0 auto;
-    width: 600px;
-    vertical-align: bottom auto;
+    width: 600px;    
     font-family: 'Playfair Display', serif;
     font-family: 'Ysabeau', sans-serif;
 
