@@ -23,6 +23,7 @@ function fixDate(date) {
                 return `${day} ${hours}:${minutes}`;
 }
             
+                
                                
 
             function displayWeather(response) {
@@ -49,6 +50,11 @@ function fixDate(date) {
                 let feelsLike = document.querySelector("#feels");
                 let feeling = Math.round(response.data.temperature.feels_like);
                 feelsLike.innerHTML = `${feeling}°C`;
+
+                let emojie = document.querySelector("#emo");
+                console.log(response.data.condition.icon_url)
+                emojie.setAttribute("src",`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon_url}.png`);
+
             }
             
 
