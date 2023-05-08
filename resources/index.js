@@ -51,9 +51,8 @@ function fixDate(date) {
                 let feeling = Math.round(response.data.temperature.feels_like);
                 feelsLike.innerHTML = `${feeling}°C`;
 
-                let emojie = document.querySelector("#emo");
-                console.log(response.data.condition.icon_url)
-                emojie.setAttribute("src",`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon_url}.png`);
+                let emojie = document.querySelector("#emo");                
+                emojie.setAttribute("src",`${response.data.condition.icon_url}`);
 
             }
             
