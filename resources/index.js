@@ -109,7 +109,8 @@ function fixDate(date) {
 
                 let days = ["Thursday", "Friday", "Saturday", "Sunday"];
                 
-              }
+            }             
+           
 
 
             let dateElement = document.querySelector("#current-date");
@@ -126,9 +127,8 @@ function fixDate(date) {
              fahrenheit.addEventListener("click", displayFahrenheitTemperature);
 
              let celsius = document.querySelector("#celsius-link");
-             celsius.addEventListener("click", displayCelsiusTemperature);
-
-            
+             celsius.addEventListener("click", displayCelsiusTemperature);            
   
 
-            searchCity("Pretoria");
+             searchCity("Pretoria");
+             showForecast();
