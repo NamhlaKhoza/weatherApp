@@ -20,9 +20,26 @@ function fixDate(date) {
                 ];
                 let day = days[dayIndex];
 
-                return `${day} ${hours}:${minutes}`;
-}
+    return `${day} ${hours}:${minutes}`;
+  }
+
+    
+            function showForecast(response) {
+                console.log(response)
+                let forecast = document.querySelector("#forecast");
+                let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+        
+            }
+
             
+             
+            function getForecast(coords) {
+              console.log(coords)
+                let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
+                let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.longitude}&lat=${coords.latitude}&key=${apiKey}&units=metric`
+                axios.get(apiUrl).then(showForecast);
+            }             
+           
                 
                                
 
@@ -52,9 +69,12 @@ function fixDate(date) {
                 feelsLike.innerHTML = `${feeling}°C`;
 
                 let emojie = document.querySelector("#emo");                
-                emojie.setAttribute("src",`${response.data.condition.icon_url}`);
+                emojie.setAttribute("src", `${response.data.condition.icon_url}`);
+                
 
-            }
+            }             
+           
+
             
 
             function searchCity(city) {
@@ -104,13 +124,6 @@ function fixDate(date) {
                 navigator.geolocation.getCurrentPosition(searchPosition);
             }
 
-            function showForecast() {
-             let forecastElement = document.querySelector("#forecast");
-
-                let days = ["Thursday", "Friday", "Saturday", "Sunday"];
-                
-            }             
-           
 
 
             let dateElement = document.querySelector("#current-date");
@@ -130,5 +143,5 @@ function fixDate(date) {
              celsius.addEventListener("click", displayCelsiusTemperature);            
   
 
-             searchCity("Pretoria");
-             showForecast();
+searchCity(Pretoria);
+showForecast();
