@@ -104,6 +104,14 @@ function fixDate(date) {
                 navigator.geolocation.getCurrentPosition(searchPosition);
             }
 
+            function showForecast() {
+             let forecastElement = document.querySelector("#forecast");
+
+                let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+                
+              }
+
+
             let dateElement = document.querySelector("#current-date");
             let currentTime = new Date();
             dateElement.innerHTML = fixDate(currentTime);
