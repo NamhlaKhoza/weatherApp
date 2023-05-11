@@ -22,7 +22,7 @@ function fixDate(date) {
 
     return `${day} ${hours}:${minutes}`;
   }
-
+/*
     
             function showForecast(response) {
                 console.log(response)
@@ -40,7 +40,7 @@ function fixDate(date) {
                 axios.get(apiUrl).then(showForecast);
             }             
            
-                
+    */
                                
 
             function displayWeather(response) {
@@ -144,4 +144,4 @@ function fixDate(date) {
   
 
 searchCity(Pretoria);
-showForecast();
+//showForecast();
