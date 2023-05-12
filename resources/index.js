@@ -22,25 +22,23 @@ function fixDate(date) {
 
     return `${day} ${hours}:${minutes}`;
   }
-/*
-    
+    /*
             function showForecast(response) {
                 console.log(response)
                 let forecast = document.querySelector("#forecast");
                 let days = ["Thursday", "Friday", "Saturday", "Sunday"];
         
-            }
+            }*/
 
             
              
-            function getForecast(coords) {
-              console.log(coords)
-                let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
+            function getForecast(coordinates) {
+              console.log(coordinates)
+                /*let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
                 let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.longitude}&lat=${coords.latitude}&key=${apiKey}&units=metric`
-                axios.get(apiUrl).then(showForecast);
+                axios.get(apiUrl).then(showForecast);*/
             }             
-           
-    */
+        
                                
 
             function displayWeather(response) {
@@ -71,6 +69,7 @@ function fixDate(date) {
                 let emojie = document.querySelector("#emo");                
                 emojie.setAttribute("src", `${response.data.condition.icon_url}`);
                 
+                getForecast(response.data.condition)
 
             }             
            
@@ -143,5 +142,5 @@ function fixDate(date) {
              celsius.addEventListener("click", displayCelsiusTemperature);            
   
 
-searchCity(Pretoria);
+//searchCity(Pretoria);
 //showForecast();
