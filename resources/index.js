@@ -22,26 +22,28 @@ function fixDate(date) {
 
     return `${day} ${hours}:${minutes}`;
   }
-    /*
+    
             function showForecast(response) {
                 console.log(response)
-                let forecast = document.querySelector("#forecast");
-                let days = ["Thursday", "Friday", "Saturday", "Sunday"];
-        
-            }*/
+                let forecastTest = response.data.daily
+                let forecastElement = document.querySelector("#forecast")
+                forecastElement.innerHTML= `${forecastTest}`
+                        
+            }
 
             
              
-            function getForecast(coordinates) {
-              console.log(coordinates)
-                /*let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
-                let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.longitude}&lat=${coords.latitude}&key=${apiKey}&units=metric`
-                axios.get(apiUrl).then(showForecast);*/
+function getForecast(coordinates) {
+                let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
+                let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`
+    axios.get(apiUrl).then(showForecast);
+    
             }             
         
-                               
+                
 
             function displayWeather(response) {
+                
                 let currentCity = document.querySelector("#city");
                 let current = response.data.city;
                 currentCity.innerHTML = `${current}`;
@@ -69,7 +71,8 @@ function fixDate(date) {
                 let emojie = document.querySelector("#emo");                
                 emojie.setAttribute("src", `${response.data.condition.icon_url}`);
                 
-                getForecast(response.data.condition)
+                
+                getForecast(response.data.condition.coords)
 
             }             
            
@@ -113,8 +116,7 @@ function fixDate(date) {
 
             function searchPosition(position) {
                 let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
-                let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`
-                
+                let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`
                 axios.get(apiUrl).then(displayWeather);
             }
 
@@ -143,4 +145,5 @@ function fixDate(date) {
   
 
 //searchCity(Pretoria);
+
 //showForecast();
