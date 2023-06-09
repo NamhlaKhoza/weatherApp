@@ -72,7 +72,7 @@ function getForecast(coordinates) {
                 emojie.setAttribute("src", `${response.data.condition.icon_url}`);
                 
                 
-                getForecast(response.data.condition.coords)
+                getForecast(response.data.coordinates);
 
             }             
            
