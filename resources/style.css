@@ -1,7 +1,8 @@
 .container {
     margin: 40px 100px auto;
-    background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%);
-    height: 600px;
+    background: linear-gradient(181.2deg, rgb(181, 239, 249) 10.5%, rgb(254, 254, 254) 86.8%);
+    height: 520px;
+    width: 550px;
     padding: 10px 0px 35px 10px;
     border-radius: 5px;
     box-shadow: 2px 2px rgba(160, 199, 254, 0.6);
@@ -39,13 +40,12 @@
 .submit {
     margin-left: 15px;
     margin-top: 10px;
-    height: 25px;
+    height: 32px;
     width: 55px;
     padding: 5px;
     font-family: monospace;
     font-size: medium;
     color: rgb(43, 116, 219);
-    background-color: rgb(209, 223, 236);
     border-radius: 5px;
     border: 1px solid rgb(43, 116, 219);
 }
@@ -59,13 +59,12 @@
 }
 
 .currentLocation {
-    height: 25px;
-    width: 55px;
+    height: 32px;
+    width: 58px;
     padding: 3px 2px 0;
     font-family: monospace;
     font-size: medium;
     color: rgb(43, 116, 219);
-    background-color: rgb(209, 223, 236);
     border-radius: 5px;
     border: 1px solid rgb(43, 116, 219);
 }
@@ -82,13 +81,29 @@
 .weather-days {  
     font-family: 'Playfair Display', serif;
     font-family: 'Ysabeau', sans-serif;
-    display: inline-block;
+    width: 500px;
+}
+
+.col{
+    margin-left: 2px;
+    margin-top: 5px;
+    align-items: center;
+}
+
+.col:hover{
+    background-color: aliceblue;
+    cursor: pointer;
+    transition: all 150ms ease-out;
+    border-radius: 10px;
 }
 
 
-.emo {
-    font-size: 50px;
-    margin-top: 1px;
+.days-emo {
+    width: 70px;
+}
+
+.max-temp{
+    margin-left: 15px;
 }
 
 h3 {
@@ -118,7 +133,7 @@ a {
 }
 
 .currentDate {
-    margin: 30px 400px auto;
+    margin: 1px 400px auto;
     font-family: 'Playfair Display', serif;
     font-family: 'Source Sans Pro', sans-serif;
     font-family: 'Ysabeau', sans-serif;
@@ -141,10 +156,6 @@ a {
     cursor: zoom-in;
 }
 
-.weather-days{
-    display:inline-block;
-    
-}
 
 .repository{
     margin-left: 300px;

@@ -41,10 +41,10 @@ function formatDay(timestamp) {
               let forecast = response.data.daily;
                 console.log(forecast);
                 let forecastElement = document.querySelector("#forecast");
-                let forecastHTML = `<div class="weather-days">`
+                let forecastHTML = `<div class="row">`
                 forecast.forEach(function(forecastDay, index) {
-                    if (index<6) {
-                    forecastHTML= forecastHTML + `<div>
+                    if (index<4) {
+                    forecastHTML= forecastHTML + `<div class='col'><div>
                     <small>${formatDay(forecastDay.time)}</small>
                 </div>
                
@@ -57,7 +57,9 @@ function formatDay(timestamp) {
                     <span class="max-temp">${Math.round(forecastDay.temperature.maximum)}°/</span>
                     <span class="min-temp">${Math.round(forecastDay.temperature.minimum)}°</span>
                 </div>
-            </div>
+                </div>
+                
+        
             `}
                 });
 
