@@ -41,15 +41,17 @@ function formatDay(timestamp) {
               let forecast = response.data.daily;
                 console.log(forecast);
                 let forecastElement = document.querySelector("#forecast");
-                let forecastHTML = `<div class="columns">`
+                let forecastHTML = `<div class="weather-days">`
                 forecast.forEach(function(forecastDay, index) {
-                    if (index<6) {
+                    if (index<3) {
                     forecastHTML= forecastHTML + `<div>
                     <small>${formatDay(forecastDay.time)}</small>
                 </div>
                
                 <div class="days-emo">
+                <smaller>
                 <img src="${forecastDay.condition.icon_url}" id="emo" alt="">
+                </smaller>
                 </div>
                 <div>
                     <span class="max-temp">${Math.round(forecastDay.temperature.maximum)}°/</span>
