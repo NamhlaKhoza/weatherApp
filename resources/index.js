@@ -38,8 +38,7 @@ function formatDay(timestamp) {
   }
     
             function showForecast(response) {
-                console.log(response);
-                let forecast = response.data.daily;
+              let forecast = response.data.daily;
                 console.log(forecast);
                 let forecastElement = document.querySelector("#forecast");
                 let forecastHTML = `<div class="columns">`
@@ -126,26 +125,7 @@ function getForecast(coordinates) {
                 searchCity(city);
             }
             
-            function displayFahrenheitTemperature(event) {
-                event.preventDefault();
-                let temperatureElement = document.querySelector("#temp-one");
-
-                celsius.classList.remove("active");
-                fahrenheit.classList.add("active");
-                let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-                temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-            }
-            
-            function displayCelsiusTemperature(event) {
-                event.preventDefault();
-                celsius.classList.add("active");
-                fahrenheit.classList.remove("active");
-                let temperatureElement = document.querySelector("#temp-one");
-                temperatureElement.innerHTML = Math.round(celsiusTemperature);
-            }
-
-             let celsiusTemperature = null;
-
+           
 
             function searchPosition(position) {
                 let apiKey = "460o1d9aabc77058c9eaa29tf43930e4";
@@ -169,13 +149,6 @@ function getForecast(coordinates) {
             let currentLocation = document.querySelector("#current-location");
             currentLocation.addEventListener("click", getCurrentLocation);
             
-
-             let fahrenheit = document.querySelector("#fahrenheit-link");
-             fahrenheit.addEventListener("click", displayFahrenheitTemperature);
-
-             let celsius = document.querySelector("#celsius-link");
-             celsius.addEventListener("click", displayCelsiusTemperature);            
-  
 
 //searchCity(Pretoria);
 
