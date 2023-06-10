@@ -2,7 +2,6 @@
     margin: 40px 100px auto;
     background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%);
     height: 420px;
-    width: 530px;
     padding: 10px 0px 35px 10px;
     border-radius: 5px;
     box-shadow: 2px 2px rgba(160, 199, 254, 0.6);
@@ -79,30 +78,11 @@
     border: 2px solid;
 }
 
-/*
-.columns {
-    display: inline-block;
-    padding: 13px;
-    border: solid #a4ccf1 1px;
-    border-radius: 10px;
-        
-}
 
-.columns:hover {
-    border-radius: 10px;
-    background-color: rgb(160, 199, 254);
-    transition: all 150ms ease-in-out;
-    cursor: pointer;
-}
-*/
-
-.weather-days {
-    display: inline;
-    margin-right: 100px auto;
-    width: 500px;    
+.weather-days {  
     font-family: 'Playfair Display', serif;
     font-family: 'Ysabeau', sans-serif;
-
+    display: inline-block;
 }
 
 
