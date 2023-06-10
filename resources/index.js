@@ -24,11 +24,11 @@ function fixDate(date) {
   }
     
             function showForecast(response) {
-                console.log(response)
-                let forecastTest = response.data.daily
-                let forecastElement = document.querySelector("#forecast")
-                forecastElement.innerHTML= `${forecastTest}`
-                        
+                console.log(response);
+                let forecastTest = response.data.daily;
+                let forecastElement = document.querySelector("#forecast");
+                forecastElement.innerHTML = `${forecastTest}`;
+                console.log(forecastTest);
             }
 
             
