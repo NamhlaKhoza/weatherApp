@@ -79,7 +79,7 @@
     border: 2px solid;
 }
 
-
+/*
 .columns {
     display: inline-block;
     padding: 13px;
@@ -94,6 +94,7 @@
     transition: all 150ms ease-in-out;
     cursor: pointer;
 }
+*/
 
 .weather-days {
     display: inline;
@@ -103,6 +104,7 @@
     font-family: 'Ysabeau', sans-serif;
 
 }
+
 
 .emo {
     font-size: 50px;

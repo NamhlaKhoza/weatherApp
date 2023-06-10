@@ -22,13 +22,46 @@ function fixDate(date) {
 
     return `${day} ${hours}:${minutes}`;
   }
+
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"];
+    
+    return days[day];
+  }
     
             function showForecast(response) {
                 console.log(response);
-                let forecastTest = response.data.daily;
+                let forecast = response.data.daily;
+                console.log(forecast);
                 let forecastElement = document.querySelector("#forecast");
-                forecastElement.innerHTML = `${forecastTest}`;
-                console.log(forecastTest);
+                let forecastHTML = `<div class="columns">`
+                forecast.forEach(function(forecastDay, index) {
+                    if (index<6) {
+                    forecastHTML= forecastHTML + `<div>
+                    <small>${formatDay(forecastDay.time)}</small>
+                </div>
+               
+                <div class="days-emo">
+                <img src="${forecastDay.condition.icon_url}" id="emo" alt="">
+                </div>
+                <div>
+                    <span class="max-temp">${Math.round(forecastDay.temperature.maximum)}°/</span>
+                    <span class="min-temp">${Math.round(forecastDay.temperature.minimum)}°</span>
+                </div>
+            </div>
+            `}
+                });
+
+                forecastHTML = forecastHTML + `</div>`;
+                forecastElement.innerHTML = forecastHTML;
             }
 
             
